@@ -20,11 +20,17 @@ module.exports = () => {
     plugins: [
       new HtmlWebpackPlugin({
         template: './index.html',
-        title: 'JATE: Just Another Text Editor'
+        title: 'JATE: Just Another Text Editor',
       }),
-
-      new GenerateSW(),
+      //custom service work from src-sw.js
+      new InjectManifest({ 
+        swSrc: "./src-sw.js",
+        swDest: "src-sw.js",
+      }),
+      //creates manifest.json
       new WebpackPwaManifest({
+        fingerprints: false,
+        inject: true,
         name: 'JATE',
         short_name: 'JATE',
         description: 'Just Another Text Editor!',
@@ -36,7 +42,7 @@ module.exports = () => {
           {
             src: path.resolve('src/images/logo.png'),
             sizes: [96, 128, 192, 256, 384, 512],
-            destination: path.join('src', 'icons'),
+            destination: path.join('assets', 'icons'),
           },
         ],
       }),
