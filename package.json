@@ -9,8 +9,8 @@
     "server": "cd server nodemon server.js --ignore client",
     "build": "cd client && npm run build",
     "install": "cd server && npm i && cd ../client && npm i",
-    "client": "cd client && npm start",
-    "heroku-prebuild": "npm install --dev"
+    "client": "cd client && npm start"
+
   },
   "keywords": [],
   "author": "",
@@ -21,8 +21,6 @@
   },
   "devDependencies": {
     "concurrently": "^5.2.0",
-    "nodemon": "^2.0.4",
-    "webpack": "^5.76.2",
-    "webpack-cli": "^5.0.1"
+    "nodemon": "^2.0.4"
   }
 }
